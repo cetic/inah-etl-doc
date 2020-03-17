@@ -1,0 +1,579 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>INAH ETL API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;yaml&quot;,&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <h3 style="color:white; text-align:center;">INAH ETL API</h3>
+      <h5 style="color:white; text-align:center; margin-top:-15px;">DOCUMENTATION</h5>
+        <div class="lang-selector">
+              <a href="#" data-language-name="yaml">yaml</a>
+              <a href="#" data-language-name="json">json</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#le-service-d-39-etl" class="toc-h2 toc-link" data-title="Le service d'ETL">Le service d'ETL</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#openapi" class="toc-h1 toc-link" data-title="OpenAPI">OpenAPI</a>
+          </li>
+          <li>
+            <a href="#champs-de-donnees-communs" class="toc-h1 toc-link" data-title="Champs de données communs">Champs de données communs</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#hniss" class="toc-h2 toc-link" data-title="hniss">hniss</a>
+                  </li>
+                  <li>
+                    <a href="#birthyear" class="toc-h2 toc-link" data-title="birthYear">birthYear</a>
+                  </li>
+                  <li>
+                    <a href="#gender" class="toc-h2 toc-link" data-title="gender">gender</a>
+                  </li>
+                  <li>
+                    <a href="#ts" class="toc-h2 toc-link" data-title="ts">ts</a>
+                  </li>
+                  <li>
+                    <a href="#author" class="toc-h2 toc-link" data-title="author">author</a>
+                  </li>
+                  <li>
+                    <a href="#items" class="toc-h2 toc-link" data-title="items">items</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#actes-medicaux" class="toc-h1 toc-link" data-title="Actes médicaux">Actes médicaux</a>
+          </li>
+          <li>
+            <a href="#maladies" class="toc-h1 toc-link" data-title="Maladies">Maladies</a>
+          </li>
+          <li>
+            <a href="#mesures" class="toc-h1 toc-link" data-title="Mesures">Mesures</a>
+          </li>
+          <li>
+            <a href="#prescriptions" class="toc-h1 toc-link" data-title="Prescriptions">Prescriptions</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Cette documentation est destinée aux utilisateurs de l&#39;API du service ETL et vise à fournir plus de détails pratiques sur son utilisation, les appels, les schémas et les formats de données à utiliser.</p>
+
+<p>La spécification de l&#39;interface proprement dite est définie dans le fichier openapi.yaml et est décrite dans ce document.</p>
+
+<aside class="warning">
+Ce document est cours de rédaction. Son contenu peut encore changer et doit être validé avant publication.
+</aside>
+<h2 id='le-service-d-39-etl'>Le service d&#39;ETL</h2>
+<p>Le service d&#39;ETL (Extraction, Transformation, Loading) permet d&#39;uploader des données dans la base de données. Actuellement, les types données supportés sont : 
+- Act : Les actes médicaux
+- Disease : Les maladies
+- Measure : Les mesures (type mesure de laboratoire)
+- Prescription : Les prescriptions de médicaments et autres spécialités pharmaceutiques.</p>
+
+<p>Chaque donnée d&#39;un de ces types est à mettre en lien avec le patient auquel elle se rapporte, et lorsque c&#39;est possible, avec son auteur. Elles contiennent toutes un &quot;timestamp&quot; permettant d&#39;horodater l&#39;évènement de la création de la donnée.</p>
+
+<p>L&#39;appel à ce service se fait via une interface type &quot;REST&quot; en appelant la méthode &quot;POST&quot; de la route correspondant au type de données.</p>
+
+<p>Les sections suivantes décrivent les différentes routes et la manière de les appeler.</p>
+<h1 id='openapi'>OpenAPI</h1>
+<blockquote>
+<p>Extrait de la spécification openapi :</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"openapi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3.0.2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"info"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"INAH ETL API"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This API is the frontend used to insert new data in the INAH database"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0.1"</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"/prescription"</span><span class="p">:</span><span class="w"> 
+            </span><span class="p">{</span><span class="s2">"post"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adds a new prescription"</span><span class="p">,</span><span class="w"> 
+                       </span><span class="s2">"requestBody"</span><span class="p">:</span><span class="w"> 
+                        </span><span class="p">{</span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"application/json"</span><span class="p">:</span><span class="w"> 
+                            </span><span class="p">{</span><span class="s2">"schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#/components/schemas/Prescription"</span><span class="p">}}}},</span><span class="w">
+
+                            </span><span class="err">...</span><span class="w">
+
+</span></code></pre><pre class="highlight yaml tab-yaml"><code><span class="na">openapi</span><span class="pi">:</span> <span class="s">3.0.2</span>
+<span class="na">info</span><span class="pi">:</span>
+  <span class="na">title</span><span class="pi">:</span> <span class="s">INAH ETL API</span>
+  <span class="na">description</span><span class="pi">:</span> <span class="s">This API is the frontend used to insert new data in the INAH database</span>
+  <span class="na">version</span><span class="pi">:</span> <span class="s">0.0.1</span>
+
+<span class="na">paths</span><span class="pi">:</span>
+  <span class="s">/prescription</span><span class="pi">:</span>
+    <span class="na">post</span><span class="pi">:</span>
+      <span class="na">summary</span><span class="pi">:</span> <span class="s">Adds a new prescription</span>
+      <span class="na">requestBody</span><span class="pi">:</span>
+        <span class="na">content</span><span class="pi">:</span>
+          <span class="s">application/json</span><span class="pi">:</span>
+          <span class="s">...</span>
+
+</code></pre>
+<p>La route &quot;/openapi&quot; permet d&#39;obtenir la spécification de l&#39;interface au format OpenAPI au format json.</p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>GET /openapi</code> </p>
+
+<p><button onClick="window.open('http://etl.inah.int.cetic.be/openapi');">Test</button></p>
+<h4 id='parametres'>Paramètres</h4>
+<p>Aucun</p>
+<h1 id='champs-de-donnees-communs'>Champs de données communs</h1>
+<blockquote>
+<p>Schéma général</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">Data</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">hniss</span>
+        <span class="pi">-</span> <span class="s">ts</span>
+        <span class="pi">-</span> <span class="s">items</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">hniss</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">birthYear</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">integer</span>
+        <span class="na">gender</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">enum</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">M</span><span class="pi">,</span> <span class="nv">F</span><span class="pi">,</span> <span class="nv">X</span><span class="pi">]</span>
+        <span class="na">ts</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">format</span><span class="pi">:</span> <span class="s">timestamp</span>
+        <span class="na">author</span><span class="pi">:</span>
+          <span class="s">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/components/schemas/Author'</span>
+        <span class="na">items</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
+          <span class="na">items</span><span class="pi">:</span>
+            <span class="s">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/components/schemas/XXX'</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+         </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"hniss"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ts"</span><span class="p">,</span><span class="w"> </span><span class="s2">"items"</span><span class="p">],</span><span class="w"> 
+         </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"hniss"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w">
+            </span><span class="s2">"birthYear"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"integer"</span><span class="p">},</span><span class="w">
+            </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> 
+                        </span><span class="s2">"enum"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w"> </span><span class="s2">"X"</span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w"> 
+            </span><span class="s2">"ts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w"> 
+                    </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"timestamp"</span><span class="p">},</span><span class="w"> 
+            </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#/components/schemas/Author"</span><span class="w">
+            </span><span class="p">},</span><span class="w"> 
+            </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w"> 
+                </span><span class="s2">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"$ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#/components/schemas/XXX"</span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Les différentes routes partagent une base de schéma commune reprenant les champs suivants : </p>
+<h3 id='hniss'>hniss</h3>
+<p>le champ hniss représente l&#39;identifiant anonymisé du patient.</p>
+<h3 id='birthyear'>birthYear</h3>
+<p>le champ birthYear représente l&#39;année de naissance du patient dans un calendrier grégorien. Elle est représentée sous la forme d&#39;un nombre entier à 4 chiffres.</p>
+<h3 id='gender'>gender</h3>
+<p>Le champ gender représente le genre de naissance du patient. Il est spécifié sous la forme d&#39;un caractère à sélectionner parmi: </p>
+
+<ul>
+<li>M : Masculin</li>
+<li>F : Féminin</li>
+<li>X : Autre</li>
+</ul>
+<h3 id='ts'>ts</h3>
+<p>Le champ ts représente le timestamp qui horodate l&#39;acte. Il s&#39;agit idéalement du moment ou l&#39;acte a été réalisé. Il est représenté par un epoch au format unix à envoyer sous la forme d&#39;une string ne contenant que des chiffres.</p>
+<h3 id='author'>author</h3>
+<blockquote>
+<p>Schéma :</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">Author</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">code</span>
+        <span class="pi">-</span> <span class="s">codeType</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">code</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">codeType</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+ </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"code"</span><span class="p">,</span><span class="w"> </span><span class="s2">"codeType"</span><span class="p">],</span><span class="w"> 
+ </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"codeType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Le champ author représente la personne qui a réalisé l&#39;acte qui a produit la donnée (acte médical, diagnostic, test, prescription, etc...). Dans le cadre du projet inah, il s&#39;agira le plus souvent d&#39;un médecin.</p>
+
+<p>Il est représenté par un couple de champs 
+- code : un code identifiant de la personne
+- codeType : le type de code utilisé (par ex: &quot;inami&quot; pour le numéro inami d&#39;un médecin).</p>
+<h3 id='items'>items</h3>
+<p>Le champ items contient la liste d&#39;élements de données à stocker. Pour chaque route, ces éléments pourront prendre une forme différente qui sera décrite dans la section spécifique au type de donnée correspondant.</p>
+<h1 id='actes-medicaux'>Actes médicaux</h1>
+<blockquote>
+<p>Schéma :</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">MedicalActItem</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">code</span>
+        <span class="pi">-</span> <span class="s">codeType</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">code</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">codeType</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+ </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"code"</span><span class="p">,</span><span class="w"> </span><span class="s2">"codeType"</span><span class="p">],</span><span class="w"> 
+ </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"codeType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cette route permet d&#39;uploader un batch d&#39;actes médicaux</p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>POST /act</code></p>
+<h4 id='description-des-donnees'>Description des données</h4>
+<p>Chaque acte médical est représenté par un couple de codes : 
+- <code>code</code> : le code de l&#39;acte médical
+- <code>codeType</code> : le référentiel dont est issu le code. (par ex: &#39;inami&#39; pour un code inami)</p>
+<h1 id='maladies'>Maladies</h1>
+<blockquote>
+<p>Schéma :</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">DiseaseItem</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">code</span>
+        <span class="pi">-</span> <span class="s">codeType</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">code</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">codeType</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+ </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"code"</span><span class="p">,</span><span class="w"> </span><span class="s2">"codeType"</span><span class="p">],</span><span class="w"> 
+ </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"codeType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cette route permet d&#39;uploader un batch de maladies relatives à un patient. </p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>POST /disease</code></p>
+<h4 id='description-des-donnees'>Description des données</h4>
+<p>Chaque maladie est représentée par un couple de codes : 
+- <code>code</code> : le code de la maladie
+- <code>codeType</code> : le référentiel dont est issu le code. (par ex: &#39;icd10&#39; pour un code ICD 10)</p>
+<h1 id='mesures'>Mesures</h1>
+<blockquote>
+<p>Schéma :</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">MeasureItem</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">code</span>
+        <span class="pi">-</span> <span class="s">codeType</span>
+        <span class="pi">-</span> <span class="s">value</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">code</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">codeType</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">value</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">unit</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="s2">"MeasureItem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"code"</span><span class="p">,</span><span class="w"> </span><span class="s2">"codeType"</span><span class="p">,</span><span class="w"> </span><span class="s2">"value"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+        </span><span class="s2">"codeType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+        </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+        </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cette route permet d&#39;uploader un batch de mesures relatives à un patient. </p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>POST /measure</code></p>
+<h4 id='description-des-donnees'>Description des données</h4>
+<p>Chaque mesure est représentée par une série de champs
+- <code>code</code> : le code de la mesure
+- <code>codeType</code> : le référentiel dont est issu le code. (par ex: &#39;loinc&#39; pour un code LOINC, &#39;albert&#39; pour un code ALBERT, &#39;snomed&#39; pour un code SNOMED)
+- <code>value</code> : la valeur de la mesure (par ex: 92)
+- <code>unit</code>: l&#39;unité relative à la valeur (par ex: mmHg, %, mg/dl, mmol/l, ...)</p>
+
+<p>Le champ unité est optionnel mais fortement recommandé, particulièrement dans le cas ou différentes unités (ou échelles d&#39;une même unité) sont habituellement utilisées. </p>
+<h1 id='prescriptions'>Prescriptions</h1>
+<blockquote>
+<p>Schéma :</p>
+</blockquote>
+<pre class="highlight yaml tab-yaml"><code>    <span class="na">CodedDocumentItem</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">code</span>
+        <span class="pi">-</span> <span class="s">codeType</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">code</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">codeType</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+
+    <span class="na">FreeTextDocumentItem</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+      <span class="na">required</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="s">text</span>
+      <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">text</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="s2">"CodedDocumentItem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w"> 
+ </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"code"</span><span class="p">,</span><span class="w"> </span><span class="s2">"codeType"</span><span class="p">],</span><span class="w"> 
+ </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">},</span><span class="w"> 
+    </span><span class="s2">"codeType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+ </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span><span class="s2">"FreeTextDocumentItem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"text"</span><span class="p">],</span><span class="w"> 
+     </span><span class="s2">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Cette route permet d&#39;uploader un batch de prescriptions de médicaments ou d&#39;autres spécialités pharmaceutiques. </p>
+<h4 id='http-request'>HTTP Request</h4>
+<p><code>POST /prescription</code></p>
+<h4 id='description-des-donnees'>Description des données</h4>
+<p>Chaque entrée d&#39;une prescription est représentée par l&#39;un des deux schémas: </p>
+
+<p>Soit une entrée codée sous la forme d&#39;un couple : 
+- <code>code</code> : le code de l&#39;élément prescrit
+- <code>codeType</code> : le référentiel dont est issu le code. (par ex: &#39;cnk&#39; pour un code CNK, &#39;atc&#39; pour un code ATC)</p>
+
+<p>Soit une entrée en texte libre représentée par un champ nommé <code>text</code> qui contient le texte rédigé sur la prescription (utilisé par exemple pour la description d&#39;une préparation magistrale).</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="yaml">yaml</a>
+                <a href="#" data-language-name="json">json</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
